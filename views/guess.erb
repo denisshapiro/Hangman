@@ -1,0 +1,15 @@
+<div class = "text-center container">
+  <form action="/game" method='POST' autocomplete="off">
+      <h4>Enter Guess</h4>
+      <h6> <%= hidden_word.join('') %> </h6>
+      <br>
+      <div class = 'row justify-content-center'>
+        <input type='text' class = 'form-control col-3' name='guessed_letter' maxlength = "1"/>
+      </div>
+      <br>
+      <input type='submit' value='Submit'class="btn btn-danger"/>
+      <br><br>
+      <h5>Wrong Guesses</h5>
+      <h6> <%= wrong_letters_guessed.join(' ') %> </h6>
+  </form>
+</div>

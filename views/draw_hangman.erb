@@ -1,0 +1,13 @@
+<% if guesses_remaining == 6 %>
+  <img src="/images/hangman_0.png" alt="Hangman Image">
+<% elsif guesses_remaining == 5 %>
+  <img src="/images/hangman_1.png" alt="Hangman Image">
+<% elsif guesses_remaining == 4 %>
+  <img src="/images/hangman_2.png" alt="Hangman Image">
+<% elsif guesses_remaining == 3 %>
+  <img src="/images/hangman_3.png" alt="Hangman Image">
+<% elsif guesses_remaining == 2 %>
+  <img src="/images/hangman_4.png" alt="Hangman Image">
+<% elsif guesses_remaining == 1 %>
+  <img src="/images/hangman_5.png" alt="Hangman Image">
+<% end %>

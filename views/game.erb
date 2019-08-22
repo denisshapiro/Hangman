@@ -1,1 +1,23 @@
-<%= word %>
+<div class = "text-center">
+  <% if guesses_remaining.zero?%>
+    <div>
+      <img src="/images/hangman_6.png" alt="Hangman Image">
+      <h4>YOU LOSE</h4>
+      <h5>The secret word was <%= word %></h5>
+      <br>
+      <%= erb :play_again%>
+    </div>
+  <% elsif !hidden_word.include? '_ ' %>
+    <div>
+      <h4>YOU WIN</h4>
+      <h5>The Secret Word Was <%= word %></h5>
+      <br>
+      <%= erb :play_again%>
+    </div>
+  <% else %>
+    <%= erb :draw_hangman, locals: {guesses_remaining: guesses_remaining}%>
+    <%= erb :guess, locals: {
+      hidden_word: hidden_word,
+      wrong_letters_guessed: wrong_letters_guessed}%>
+  <% end %>
+</div>

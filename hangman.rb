@@ -7,7 +7,7 @@ class Dictionary
 
   def self.choose_word
     loop do
-      @word = @dictionary[rand(@dictionary.length)].gsub("\r\n", "").downcase
+      @word = @dictionary[rand(@dictionary.length)].gsub("\r\n", '').downcase
       break if @word.length.between?(@min_length, @max_length)
     end
     @word
@@ -22,7 +22,7 @@ class Hangman
     @word = Dictionary.choose_word
     @guesses_remaining = 6
     @wrong_letters_guessed = []
-    @hidden_word = Array.new(@word.length, '_')
+    @hidden_word = Array.new(@word.length, '_ ')
     @guess = nil
   end
 
@@ -33,7 +33,7 @@ class Hangman
   def check_guess(guess)
     if @word.include? guess
       @hidden_word.each_with_index do |_pos, index|
-        @hidden_word[index] = guess if @word[index] == guess
+        @hidden_word[index] = guess + ' ' if @word[index] == guess
       end
     else
       @wrong_letters_guessed.push(guess)
@@ -42,6 +42,6 @@ class Hangman
   end
 
   def endgame?
-    !(@hidden_word.include? '_') || @guesses_remaining.zero?
+    !(@hidden_word.include? '_ ') || @guesses_remaining.zero?
   end
 end
